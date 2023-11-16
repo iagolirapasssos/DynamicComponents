@@ -402,15 +402,6 @@ Parameters:
 - `componentName` - String, name of the created component 
 - `componentId` - int, ID of the created component
 
-# HandleTextChange
-
-Private synchronous method called when text changes in a text box. Used to raise the `TextChangedEvent`.
-
-Parameters:
-
-- `textBoxId` - int, ID of the text box
-- `newText` - String, updated text content
-
 # TextChangedEvent
 
 Asynchronous event dispatched when text changes in a text box.
