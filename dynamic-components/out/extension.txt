@@ -1,0 +1,583 @@
+<div align="center" >
+<h1><kbd>🏃‍♂️ DynamicComponentsBase</kbd></h1>
+An extension for MIT App Inventor 2.
+</div>
+
+## 📝 Specifications
+* **
+📦 **Package:** com.iagolirapassos.dynamiccomponents
+💾 **Size:** 51,54 KB
+⚙️ **Version:** 1.0
+📱 **Minimum API Level:** 14
+📅 **Updated On:** [date=2026-02-16 timezone="America/Fortaleza"]
+💻 **Built & documented using:** [FAST](https://community.appinventor.mit.edu/t/fast-an-efficient-way-to-build-publish-extensions/129103?u=jewel) <small><mark>v5.5.0</mark></small>
+* **
+
+### 🤝 Multi-Components
+1. [DynamicComponentsBase](#kbd-dynamiccomponentsbasekbd-3)
+2. [DynamicComponentsMedia](#kbd-dynamiccomponentsmediakbd-15)
+3. [DynamicComponentsLayout](#kbd-dynamiccomponentslayoutkbd-30)
+4. [DynamicComponentsCore](#kbd-dynamiccomponentscorekbd-45)
+
+# <kbd>🧩 DynamicComponentsBase</kbd>
+<p>Base class for dynamic components extension.</p>
+
+## <kbd>Events:</kbd>
+**DynamicComponentsBase** has total 4 events.
+
+### 1. Click
+Event triggered when a dynamic component is clicked.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 2. DoubleClick
+Event triggered when a dynamic component is double-clicked.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 3. ComponentCreated
+Event triggered when a dynamic component is created.
+
+| Parameter | Type
+| - | - |
+| componentName | text
+| componentID | number
+
+### 4. ReportError
+Report an error with a custom message
+
+| Parameter | Type
+| - | - |
+| errorMessage | text
+
+## <kbd>Methods:</kbd>
+**DynamicComponentsBase** has total 5 methods.
+
+### 1. GenerateUniqueId
+Generate a unique ID.
+
+* Return type: `number`
+
+### 2. GetDynamicComponentById
+Get a dynamic component by its ID.
+
+* Return type: `component`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 3. GetDynamicComponentLayoutById
+Get the layout view of a dynamic component by its ID.
+
+* Return type: `component`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 4. GetDynamicComponentHeight
+Get the height of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 5. GetDynamicComponentWidth
+Get the width of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+# <kbd>🧩 DynamicComponentsMedia</kbd>
+<p>Media components for dynamic components extension.</p>
+
+## <kbd>Events:</kbd>
+**DynamicComponentsMedia** has total 4 events.
+
+### 1. Click
+Event triggered when a dynamic component is clicked.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 2. DoubleClick
+Event triggered when a dynamic component is double-clicked.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 3. ComponentCreated
+Event triggered when a dynamic component is created.
+
+| Parameter | Type
+| - | - |
+| componentName | text
+| componentID | number
+
+### 4. ReportError
+Report an error with a custom message
+
+| Parameter | Type
+| - | - |
+| errorMessage | text
+
+## <kbd>Methods:</kbd>
+**DynamicComponentsMedia** has total 8 methods.
+
+### 1. GenerateUniqueId
+Generate a unique ID.
+
+* Return type: `number`
+
+### 2. GetDynamicComponentById
+Get a dynamic component by its ID.
+
+* Return type: `component`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 3. GetDynamicComponentLayoutById
+Get the layout view of a dynamic component by its ID.
+
+* Return type: `component`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 4. GetDynamicComponentHeight
+Get the height of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 5. GetDynamicComponentWidth
+Get the width of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 6. CreateDynamicCardView
+Create and add a dynamic CardView to a layout.
+
+| Parameter | Type
+| - | - |
+| cardTitle | text
+| cardText | text
+| layoutComponent | component
+| cardViewId | number
+| titleTextColor | number
+| textTextColor | number
+| cardBackgroundColor | number
+| isVisible | boolean
+| titleTextSize | number
+| textTextSize | number
+| setRadius | number
+| profileImagePath | text
+| profileImageVisible | boolean
+| cardWidth | number
+| cardHeight | number
+| widthFillParent | boolean
+| heightFillParent | boolean
+| marginList | list
+| textAlignment | AlignmentText <small><mark>(helper blocks)</mark></small>
+| verticalAlignment | AlignmentVertical <small><mark>(helper blocks)</mark></small>
+| horizontalAlignment | AlignmentHorizontal <small><mark>(helper blocks)</mark></small>
+| textImageProfileAlignment | AlignmentHorizontal <small><mark>(helper blocks)</mark></small>
+
+* Enums for **AlignmentText**: `Left`, `Center`, `Right`
+* Enums for **AlignmentVertical**: `Top`, `Center`, `Bottom`
+* Enums for **AlignmentHorizontal**: `Left`, `Center`, `Right`
+
+### 7. CreateDynamicImage
+Create and add a dynamic ImageView
+
+| Parameter | Type
+| - | - |
+| imagePath | text
+| layoutComponent | component
+| imageId | number
+| width | number
+| height | number
+| widthFillParent | boolean
+| heightFillParent | boolean
+| isVisible | boolean
+
+### 8. CreateImageSlider
+Create a dynamic image slider.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| imageUrls | list
+| layoutComponent | component
+| viewPagerWidth | number
+| viewPagerHeight | number
+| imageWidth | number
+| imageHeight | number
+
+# <kbd>🧩 DynamicComponentsLayout</kbd>
+<p>Layout components for dynamic components extension.</p>
+
+## <kbd>Events:</kbd>
+**DynamicComponentsLayout** has total 4 events.
+
+### 1. Click
+Event triggered when a dynamic component is clicked.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 2. DoubleClick
+Event triggered when a dynamic component is double-clicked.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 3. ComponentCreated
+Event triggered when a dynamic component is created.
+
+| Parameter | Type
+| - | - |
+| componentName | text
+| componentID | number
+
+### 4. ReportError
+Report an error with a custom message
+
+| Parameter | Type
+| - | - |
+| errorMessage | text
+
+## <kbd>Methods:</kbd>
+**DynamicComponentsLayout** has total 8 methods.
+
+### 1. GenerateUniqueId
+Generate a unique ID.
+
+* Return type: `number`
+
+### 2. GetDynamicComponentById
+Get a dynamic component by its ID.
+
+* Return type: `component`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 3. GetDynamicComponentLayoutById
+Get the layout view of a dynamic component by its ID.
+
+* Return type: `component`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 4. GetDynamicComponentHeight
+Get the height of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 5. GetDynamicComponentWidth
+Get the width of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 6. CreateDynamicSpace
+Create and add a dynamic Space to a layout.
+
+| Parameter | Type
+| - | - |
+| layoutComponent | component
+| spaceId | number
+| width | number
+| height | number
+| widthFillParent | boolean
+| heightFillParent | boolean
+
+### 7. CreateDynamicVerticalArrangement
+Create and add a dynamic Vertical Arrangement to a layout.
+
+| Parameter | Type
+| - | - |
+| layoutComponent | component
+| verticalArrangementId | number
+| isVisible | boolean
+| width | number
+| height | number
+| widthFillParent | boolean
+| heightFillParent | boolean
+| backgroundColor | number
+| horizontalAlignment | AlignmentHorizontal <small><mark>(helper blocks)</mark></small>
+| verticalAlignment | AlignmentVertical <small><mark>(helper blocks)</mark></small>
+
+
+### 8. CreateDynamicHorizontalArrangement
+Create and add a dynamic Horizontal Arrangement to a layout.
+
+| Parameter | Type
+| - | - |
+| layoutComponent | component
+| horizontalArrangementId | number
+| isVisible | boolean
+| width | number
+| height | number
+| widthFillParent | boolean
+| heightFillParent | boolean
+| backgroundColor | number
+| horizontalAlignment | AlignmentHorizontal <small><mark>(helper blocks)</mark></small>
+| verticalAlignment | AlignmentVertical <small><mark>(helper blocks)</mark></small>
+
+
+# <kbd>🧩 DynamicComponentsCore</kbd>
+<p>Core components for dynamic components extension.</p>
+
+## <kbd>Events:</kbd>
+**DynamicComponentsCore** has total 5 events.
+
+### 1. Click
+Event triggered when a dynamic component is clicked.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 2. DoubleClick
+Event triggered when a dynamic component is double-clicked.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 3. ComponentCreated
+Event triggered when a dynamic component is created.
+
+| Parameter | Type
+| - | - |
+| componentName | text
+| componentID | number
+
+### 4. ReportError
+Report an error with a custom message
+
+| Parameter | Type
+| - | - |
+| errorMessage | text
+
+### 5. TextChangedEvent
+Event triggered when text in the TextBox changes.
+
+| Parameter | Type
+| - | - |
+| textBoxId | number
+| newText | text
+
+## <kbd>Methods:</kbd>
+**DynamicComponentsCore** has total 15 methods.
+
+### 1. GenerateUniqueId
+Generate a unique ID.
+
+* Return type: `number`
+
+### 2. GetDynamicComponentById
+Get a dynamic component by its ID.
+
+* Return type: `component`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 3. GetDynamicComponentLayoutById
+Get the layout view of a dynamic component by its ID.
+
+* Return type: `component`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 4. GetDynamicComponentHeight
+Get the height of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 5. GetDynamicComponentWidth
+Get the width of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 6. CreateDynamicButton
+Create and add a dynamic button to a layout.
+
+| Parameter | Type
+| - | - |
+| text | text
+| layoutComponent | component
+| buttonId | number
+| textColor | number
+| isBold | boolean
+| isItalic | boolean
+| isVisible | boolean
+| textSize | number
+| backgroundColor | number
+| width | number
+| height | number
+| widthFillParent | boolean
+| heightFillParent | boolean
+
+### 7. CreateDynamicLabel
+Create and add a dynamic label to a layout.
+
+| Parameter | Type
+| - | - |
+| text | text
+| layoutComponent | component
+| labelId | number
+| isBold | boolean
+| isItalic | boolean
+| textColor | number
+| width | number
+| height | number
+| widthFillParent | boolean
+| heightFillParent | boolean
+| isVisible | boolean
+| textSize | number
+| backgroundColor | number
+| acceptsHtml | boolean
+| horizontalAlignment | AlignmentHorizontal <small><mark>(helper blocks)</mark></small>
+| verticalAlignment | AlignmentVertical <small><mark>(helper blocks)</mark></small>
+| horizontalAlignmentText | AlignmentText <small><mark>(helper blocks)</mark></small>
+| verticalAlignmentText | AlignmentVertical <small><mark>(helper blocks)</mark></small>
+
+
+### 8. CreateDynamicTextBox
+Create and add a dynamic TextBox to a layout.
+
+| Parameter | Type
+| - | - |
+| hint | text
+| layoutComponent | component
+| textBoxId | number
+| width | number
+| height | number
+| widthFillParent | boolean
+| heightFillParent | boolean
+| isMultiline | boolean
+| hintColor | number
+| textColor | number
+| isBold | boolean
+| isItalic | boolean
+| isVisible | boolean
+| textSize | number
+| backgroundColor | number
+| horizontalAlignment | AlignmentHorizontal <small><mark>(helper blocks)</mark></small>
+| textAlignment | AlignmentText <small><mark>(helper blocks)</mark></small>
+
+
+### 9. GetDynamicTextBoxText
+Get the current text or hint of a dynamic TextBox.
+
+* Return type: `text`
+
+| Parameter | Type
+| - | - |
+| textBoxId | number
+| isHint | boolean
+
+### 10. GetDynamicComponentWithLayout
+Get a dynamic component and its layout information by ID. Returns a list with [component, layoutName, layoutComponent, componentId]
+
+* Return type: `list`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 11. GetParentLayoutOfComponent
+Get the layout component that contains a dynamic component.
+
+* Return type: `component`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 12. GetComponentLayoutType
+Get the layout type of a dynamic component (returns 'VerticalArrangement', 'HorizontalArrangement', 'FrameLayout', 'CardView', or 'unknown')
+
+* Return type: `text`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 13. IsComponentInLayout
+Check if a dynamic component exists in a specific layout.
+
+* Return type: `boolean`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| layoutId | number
+
+### 14. GetChildComponentsOfLayout
+Get all child components of a layout component.
+
+* Return type: `list`
+
+| Parameter | Type
+| - | - |
+| layoutId | number
+
+### 15. GetComponentIdFromView
+Get the component ID from a view (for advanced usage).
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| component | component
+

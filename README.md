@@ -1,412 +1,513 @@
-# DynamicComponents
-Introducing the DynamicsComponents Extension, an innovative tool designed to streamline the creation and management of dynamic components in Android applications using Kodular Creator, Niotron and MIT App Inventor. This extension offers a range of functionalities for adding dynamic, interactive elements to your apps with ease.
-
-# GenerateUniqueId
-
-Synchronous method to generate a unique integer ID.
-
-This method does not take any parameters. It calls the `UniqueIdGenerator` helper class to generate a unique ID and returns it. The returned ID can be used to identify components.
-
-# CreateDynamicButton 
-
-Asynchronous method to create a dynamic button and add it to a layout.
-
-Parameters:
-
-- `text` - String, text to display on the button 
-- `layoutComponent` - AndroidViewComponent, the parent layout to add the button to
-- `buttonId` - int, unique ID for the button
-- `textColor` - int, text color of the button
-- `isBold` - boolean, whether to make button text bold
-- `isItalic` - boolean, whether to make button text italic
-- `isVisible` - boolean, whether the button is visible initially 
-- `textSize` - int, text size of the button text
-- `backgroundColor` - int, background color of the button
-- `width` - int, width of the button
-- `height` - int, height of the button
-- `widthFillParent` - boolean, whether width should match parent
-- `heightFillParent` - boolean, whether height should match parent
-
-This method creates a `MyButtonComponent`, configures its properties based on the parameters, sets click listeners, and adds it to the `layoutComponent`. It dispatches `Click` and `DoubleClick` events when the button is clicked.
-
-# CreateDynamicLabel
-
-Asynchronous method to create a dynamic label and add it to a layout.
-
-Parameters:
-
-- `text` - String, text to display in the label
-- `layoutComponent` - AndroidViewComponent, the parent layout 
-- `labelId` - int, unique ID for the label
-- `isBold` - boolean, make label text bold
-- `isItalic` - boolean, make label text italic
-- `textColor` - int, text color of label
-- `width` - int, width of label
-- `height` - int, height of label
-- `widthFillParent` - boolean, match parent width
-- `heightFillParent` - boolean, match parent height  
-- `isVisible` - boolean, initial visibility of label
-- `textSize` - int, text size of label
-- `backgroundColor` - int, background color of label
-- `acceptsHtml` - boolean, whether label text contains HTML
-- `horizontalAlignment` - int, horizontal alignment of label
-- `verticalAlignment` - int, vertical alignment of label
-- `horizontalTextAlignment` - int, horizontal text alignment
-- `verticalTextAlignment` - int, vertical text alignment
-
-This method creates a `MyLabelComponent`, configures it based on the parameters, sets click listeners, and adds it to the `layoutComponent`. It dispatches `Click` and `DoubleClick` events when clicked.
-
-# CreateDynamicTextBox
-
-Asynchronous method to create a dynamic text box and add it to a layout.
-
-Parameters:
-
-- `hint` - String, hint text to display
-- `layoutComponent` - AndroidViewComponent, parent layout
-- `textBoxId` - int, unique ID for the text box  
-- `width` - int, width of text box
-- `height` - int, height of text box
-- `widthFillParent` - boolean, match parent width  
-- `heightFillParent` - boolean, match parent height
-- `isMultiline` - boolean, multiline input
-- `hintColor` - int, hint text color
-- `textColor` - int, input text color 
-- `isBold` - boolean, bold input text
-- `isItalic` - boolean, italic input text
-- `isVisible` - boolean, initial visibility
-- `textSize` - int, input text size
-- `backgroundColor` - int, background color
-- `horizontalAlignment` - int, horizontal alignment 
-- `textAlignment` - int, alignment of input text
-
-This method creates a `MyTextBoxComponent`, configures it based on the parameters, sets text change listener, and adds it to the `layoutComponent`. 
-
-It dispatches `TextChangedEvent` when text changes and `Click` when clicked.
-
-# CreateDynamicCardView 
-
-Asynchronous method to create a CardView with image, title and text.
-
-Parameters:
-
-- `cardTitle` - String, card title text 
-- `cardText` - String, card description text
-- `layoutComponent` - AndroidViewComponent, parent layout
-- `cardViewId` - int, unique ID for the card
-- `titleTextColor` - int, card title text color
-- `textTextColor` - int, card description text color
-- `cardBackgroundColor` - int, card background color
-- `isVisible` - boolean, initial visibility of card
-- `titleTextSize` - int, card title text size
-- `textTextSize` - int, card description text size  
-- `setRadius` - int, radius for rounded corners
-- `profileImagePath` - String, file path of image  
-- `profileImageVisible` - boolean, whether to show profile image
-- `cardWidth` - int, width of card
-- `cardHeight` - int, height of card
-- `widthFillParent` - boolean, match parent width
-- `heightFillParent` - boolean, match parent height
-- `marginList` - YailList, margins around the card as [left, top, right, bottom] 
-- `textAlignment` - int, alignment of text in card
-- `verticalAlignment` - int, vertical alignment of card
-- `horizontalAlignment` - int, horizontal alignment of card
-- `textImageProfileAlignment` - int, alignment of image and text
+# 🧩 DynamicComponents
 
-This method creates a `MyCardViewComponent` configured based on the parameters. It adds `TextView`s, `ImageView` and sets alignments. The card is added to the `layoutComponent`.
-
-# CreateDynamicSpace
-
-Asynchronous method to create a dynamic space (empty view) and add it to a layout.
-
-Parameters:
-
-- `layoutComponent` - AndroidViewComponent, parent layout 
-- `spaceId` - int, unique ID for the space
-- `width` - int, width of the space
-- `height` - int, height of the space
-- `widthFillParent` - boolean, match parent width
-- `heightFillParent` - boolean, match parent height
-
-This creates a `MySpaceComponent` with given size, sets its ID, and adds it to the `layoutComponent`.
-
-# CreateDynamicVerticalArrangement
-
-Asynchronous method to create a vertical linear layout.
-
-Parameters:
-
-- `layoutComponent` - AndroidViewComponent, parent layout
-- `verticalArrangementId` - int, unique ID  
-- `isVisible` - boolean, initial visibility
-- `width` - int, width of layout
-- `height` - int, height of layout
-- `widthFillParent` - boolean, match parent width
-- `heightFillParent` - boolean, match parent height 
-- `backgroundColor` - int, background color
-- `horizontalAlignment` - int, horizontal alignment
-- `verticalAlignment` - int, vertical alignment of children
-
-This creates a `MyVerticalArrangementComponent` with a vertical `LinearLayout`. It sets the ID, visibility, size, background color and alignments based on parameters. It is added to the `layoutComponent`.
-
-Dispatches `Click` and `DoubleClick` events when clicked.
-
-# CreateDynamicHorizontalArrangement 
-
-Asynchronous method to create a horizontal linear layout.
-
-Parameters: 
-
-- `layoutComponent` - AndroidViewComponent, parent layout
-- `horizontalArrangementId` - int, unique ID
-- `isVisible` - boolean, initial visibility 
-- `width` - int, width of layout
-- `height` - int, height of layout
-- `widthFillParent` - boolean, match parent width
-- `heightFillParent` - boolean, match parent height
-- `backgroundColor` - int, background color
-- `horizontalAlignment` - int, horizontal alignment
-- `verticalAlignment` - int, vertical alignment of children
-
-This creates a `MyHorizontalArrangementComponent` with a horizontal `LinearLayout`. It sets the ID, visibility, size, background color and alignments based on parameters. It is added to the `layoutComponent`.
-
-Dispatches `Click` and `DoubleClick` events when clicked.
-
-# CreateDynamicImage
-
-Asynchronous method to create a dynamic ImageView and load an image. 
-
-Parameters:
-
-- `imagePath` - String, path or URL of image to load
-- `layoutComponent` - AndroidViewComponent, parent layout 
-- `imageId` - int, unique ID for the image
-- `width` - int, image width
-- `height` - int, image height
-- `widthFillParent` - boolean, match parent width
-- `heightFillParent` - boolean, match parent height
-- `isVisible` - boolean, initial visibility
-
-This method creates a `MyImageComponent` and tries to load the image from the given `imagePath` which can be a URL or local file path. The image is loaded asynchronously using `DownloadImageTask`. 
-
-It sets the size and visibility based on parameters before adding to the `layoutComponent`.
-
-# SetVerticalAlignmentRelativeTo
-
-Synchronous method to set a component's vertical alignment relative to another component.
-
-Parameters:
-
-- `componentId` - int, ID of component to align
-- `referenceComponentId` - int, ID of reference component 
-- `alignment` - int, vertical alignment (top, center, bottom)
-
-This method looks up the two components by their IDs, gets their layout params and sets the vertical gravity to achieve the alignment.
-
-# SetHorizontalAlignmentRelativeTo
-
-Synchronous method to set a component's horizontal alignment relative to another component.
-
-Parameters:
-
-- `componentId` - int, ID of component to align
-- `referenceComponentId` - int, ID of reference component
-- `alignment` - int, horizontal alignment (left, center, right)
-
-This method looks up the two components by their IDs, gets their layout params and sets the horizontal gravity to achieve the alignment.
-
-# SetHorizontalTextAlignment
-
-Synchronous method to set the horizontal alignment of text within a component like label or text box.
-
-Parameters:
-
-- `componentId` - int, ID of the component 
-- `alignment` - int, text alignment (left, center, right)
-
-This method looks up the component by ID and if it is a TextView, sets the gravity to the alignment.
-
-# CreateImageSlider
-
-Asynchronous method to create an image slider/gallery using a ViewPager.
-
-Parameters:
-
-- `componentId` - int, unique ID for the image slider
-- `imageUrls` - List, URLs of images to display
-- `layoutComponent` - AndroidViewComponent, parent layout
-- `viewPagerWidth` - int, width of the ViewPager
-- `viewPagerHeight` - int, height of the ViewPager 
-- `imageWidth` - int, width to render each image
-- `imageHeight` - int, height to render each image
-
-This method creates a `MyViewPagerComponent` and `ImageSliderAdapter`. It loads images asynchronously from the URLs and sets up the ViewPager. The ViewPager is added to the `layoutComponent`.
-
-# SetComponentById
-
-Synchronous method to configure common properties of a component.
-
-Parameters:
-
-- `componentId` - int, ID of the component
-- `text` - String, text content if applicable
-- `textColor` - int, text color if applicable  
-- `backgroundColor` - int, background color
-- `visibility` - int, visibility (VISIBLE, GONE, INVISIBLE)
-- `textSize` - int, text size if applicable
-- `textAlignment` - int, text alignment if applicable
-- `horizontalAlignment` - int, horizontal alignment
-- `verticalAlignment` - int, vertical alignment 
-- `marginList` - YailList, margins as [left, top, right, bottom]
-- `width` - int, width of component
-- `height` - int, height of component
-- `widthFillParent` - boolean, match parent width
-- `heightFillParent` - boolean, match parent height
-
-This looks up the component by `componentId` and sets its common properties like text, color, size, alignments, margins, etc. based on the parameters.
-
-# SetTextColor 
-
-Synchronous method to set the text color of a component.
-
-Parameters:
-
-- `componentId` - int, ID of the component
-- `textColor` - int, color value for the text
-
-Looks up the component by ID and sets the text color if it is a TextView.
-
-# SetBackgroundColor
-
-Synchronous method to set the background color of a component.
-
-Parameters:
-
-- `componentId` - int, ID of the component
-- `backgroundColor` - int, color value for the background
-
-Looks up the component by ID and sets its background color.
-
-# SetSize
-
-Synchronous method to set the size of a component.
-
-Parameters: 
-
-- `componentId` - int, ID of the component
-- `width` - int, width in pixels
-- `height` - int, height in pixels
-
-Looks up the component by ID and sets its width and height layout parameters.
-
-# SetText
-
-Synchronous method to set text content of a component like label or text box.
-
-Parameters:
-
-- `componentId` - int, ID of the component 
-- `text` - String, new text to set
-
-Looks up the component by ID and sets its text if it is a TextView.
-
-# GetComponentInfo
-
-Synchronous method to get information about the created dynamic components.
-
-No parameters.
-
-Returns a YailList of sublists containing [componentName, componentId, layoutName] for each dynamic component.
-
-# GetDynamicComponentById
-
-Synchronous method to lookup a dynamic component by its ID.
-
-Parameter:
-
-- `componentId` - int, ID of the component
-
-Returns the `AndroidViewComponent` associated with the ID, or null if not found.
-
-# GetDynamicTextBoxText
-
-Synchronous method to get the current text or hint from a dynamic text box.
-
-Parameters:
-
-- `textBoxId` - int, ID of the text box component
-- `isHint` - boolean, whether to return hint or actual text
-
-Returns a String containing the hint or text content.
-
-# GetDynamicComponentHeight
-
-Synchronous method to get the height of a dynamic component.
-
-Parameter: 
-
-- `componentId` - int, ID of the component
-
-Returns the height in pixels, or 0 if component not found.
-
-# GetDynamicComponentWidth
-
-Synchronous method to get the width of a dynamic component.
-
-Parameter:
-
-- `componentId` - int, ID of the component 
-
-Returns the width in pixels, or 0 if component not found.
-
-# GetDynamicComponentBackgroundColor
-
-Synchronous method to get the background color of a dynamic component.
-
-Parameter:
-
-- `componentId` - int, ID of the component
-
-Returns the background color int value, or 0 if unable to determine.
-
-# Click
-
-Asynchronous event dispatched when a component is clicked.
-
-Parameter:
-
-- `componentId` - int, ID of the clicked component
-
-# ReportError
-
-Asynchronous event to report an error.
-
-Parameter: 
-
-- `errorMessage` - String, description of the error
-
-# DoubleClick 
-
-Asynchronous event dispatched when a component is double clicked.
-
-Parameter:
-
-- `componentId` - int, ID of the double clicked component.
-
-# ComponentCreated
-
-Asynchronous event dispatched after creating a component. 
-
-Parameters:
-
-- `componentName` - String, name of the created component 
-- `componentId` - int, ID of the created component
-
-# TextChangedEvent
-
-Asynchronous event dispatched when text changes in a text box.
-
-Parameters:
-
-- `textBoxId` - int, ID of the text box
-- `newText` - String, updated text content
+<div align="center">
+  <h3><kbd>📦 com.iagolirapassos.dynamiccomponents</kbd></h3>
+  <p><strong>Extension for creating dynamic components associated with a layout in MIT App Inventor 2</strong></p>
+  
+  <p>
+    <img src="https://img.shields.io/badge/Version-1.2-brightgreen" alt="Version 1.2"/>
+    <img src="https://img.shields.io/badge/Size-66.45%20KB-blue" alt="Size 66.45 KB"/>
+    <img src="https://img.shields.io/badge/Min%20API-7-orange" alt="Minimum API Level 7"/>
+    <img src="https://img.shields.io/badge/Updated-2025--05--24-yellow" alt="Updated 2025-05-24"/>
+  </p>
+</div>
+
+## 📋 Overview
+
+**DynamicComponents** is a powerful extension that allows you to create and manage UI components dynamically at runtime. Create buttons, labels, text boxes, cards, images, sliders, and layouts programmatically with full control over their properties and behavior.
+
+## 🛠️ Specifications
+
+| Property | Value |
+|----------|-------|
+| **Package** | `com.iagolirapassos.dynamiccomponents` |
+| **Size** | 66.45 KB |
+| **Version** | 1.2 |
+| **Minimum API Level** | 7 |
+| **Updated On** | 2025-05-24 |
+| **Built with** | [FAST CLI v3.3.1](https://community.appinventor.mit.edu/t/fast-an-efficient-way-to-build-extensions/129103?u=jewel) |
+
+## 📚 Table of Contents
+
+- [Events](#-events)
+- [Methods](#-methods)
+  - [Core Components](#core-components)
+  - [Layout Components](#layout-components)
+  - [Media Components](#media-components)
+  - [Properties & Utilities](#properties--utilities)
+- [Designer Properties](#-designer-properties)
+- [Helper Enums](#-helper-enums)
+
+---
+
+## 🎯 Events
+
+The extension provides 5 events to handle user interactions and component lifecycle.
+
+### Click
+Triggered when a dynamic component is clicked.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | ID of the clicked component |
+
+### DoubleClick
+Triggered when a dynamic component is double-clicked.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | ID of the double-clicked component |
+
+### ComponentCreated
+Triggered when a dynamic component is successfully created.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentName` | `text` | Name/type of the component created |
+| `componentID` | `number` | ID assigned to the component |
+
+### TextChangedEvent
+Triggered when text in a dynamic TextBox changes.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `textBoxId` | `number` | ID of the TextBox |
+| `newText` | `text` | Current text content |
+
+### ReportError
+Reports an error with a custom message.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `errorMessage` | `text` | Error description |
+
+---
+
+## ⚙️ Methods
+
+The extension includes **25 methods** organized by category.
+
+### Core Components
+
+#### GenerateUniqueId
+Generates a unique ID for dynamic components.
+
+```
+Returns: number
+```
+
+#### CreateDynamicButton
+Creates and adds a dynamic button to a layout.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `text` | `text` | Button text |
+| `layoutComponent` | `component` | Parent layout |
+| `buttonId` | `number` | Unique ID |
+| `textColor` | `number` | Text color |
+| `isBold` | `boolean` | Bold style |
+| `isItalic` | `boolean` | Italic style |
+| `isVisible` | `boolean` | Visibility |
+| `textSize` | `number` | Text size (sp) |
+| `backgroundColor` | `number` | Background color |
+| `width` | `number` | Width in pixels |
+| `height` | `number` | Height in pixels |
+| `widthFillParent` | `boolean` | Match parent width |
+| `heightFillParent` | `boolean` | Match parent height |
+
+#### CreateDynamicLabel
+Creates and adds a dynamic label to a layout.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `text` | `text` | Label text |
+| `layoutComponent` | `component` | Parent layout |
+| `labelId` | `number` | Unique ID |
+| `isBold` | `boolean` | Bold style |
+| `isItalic` | `boolean` | Italic style |
+| `textColor` | `number` | Text color |
+| `width` | `number` | Width in pixels |
+| `height` | `number` | Height in pixels |
+| `widthFillParent` | `boolean` | Match parent width |
+| `heightFillParent` | `boolean` | Match parent height |
+| `isVisible` | `boolean` | Visibility |
+| `textSize` | `number` | Text size (sp) |
+| `backgroundColor` | `number` | Background color |
+| `acceptsHtml` | `boolean` | Enable HTML |
+| `horizontalAlignment` | `helper` | Layout horizontal alignment |
+| `verticalAlignment` | `helper` | Layout vertical alignment |
+| `horizontalAlignmentText` | `helper` | Text horizontal alignment |
+| `verticalAlignmentText` | `helper` | Text vertical alignment |
+
+#### CreateDynamicTextBox
+Creates and adds a dynamic TextBox to a layout.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `hint` | `text` | Hint text |
+| `layoutComponent` | `component` | Parent layout |
+| `textBoxId` | `number` | Unique ID |
+| `width` | `number` | Width in pixels |
+| `height` | `number` | Height in pixels |
+| `widthFillParent` | `boolean` | Match parent width |
+| `heightFillParent` | `boolean` | Match parent height |
+| `isMultiline` | `boolean` | Multi-line support |
+| `hintColor` | `number` | Hint text color |
+| `textColor` | `number` | Text color |
+| `isBold` | `boolean` | Bold style |
+| `isItalic` | `boolean` | Italic style |
+| `isVisible` | `boolean` | Visibility |
+| `textSize` | `number` | Text size (sp) |
+| `backgroundColor` | `number` | Background color |
+| `horizontalAlignment` | `helper` | Layout alignment |
+| `textAlignment` | `helper` | Text alignment |
+
+#### GetDynamicTextBoxText
+Gets the current text or hint of a dynamic TextBox.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `textBoxId` | `number` | TextBox ID |
+| `isHint` | `boolean` | True for hint, false for text |
+
+```
+Returns: text
+```
+
+### Layout Components
+
+#### CreateDynamicSpace
+Creates and adds a dynamic Space to a layout.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `layoutComponent` | `component` | Parent layout |
+| `spaceId` | `number` | Unique ID |
+| `width` | `number` | Width in pixels |
+| `height` | `number` | Height in pixels |
+| `widthFillParent` | `boolean` | Match parent width |
+| `heightFillParent` | `boolean` | Match parent height |
+
+#### CreateDynamicVerticalArrangement
+Creates and adds a dynamic Vertical Arrangement to a layout.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `layoutComponent` | `component` | Parent layout |
+| `verticalArrangementId` | `number` | Unique ID |
+| `isVisible` | `boolean` | Visibility |
+| `width` | `number` | Width in pixels |
+| `height` | `number` | Height in pixels |
+| `widthFillParent` | `boolean` | Match parent width |
+| `heightFillParent` | `boolean` | Match parent height |
+| `backgroundColor` | `number` | Background color |
+| `horizontalAlignment` | `helper` | Horizontal alignment |
+| `verticalAlignment` | `helper` | Vertical alignment |
+
+#### CreateDynamicHorizontalArrangement
+Creates and adds a dynamic Horizontal Arrangement to a layout.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `layoutComponent` | `component` | Parent layout |
+| `horizontalArrangementId` | `number` | Unique ID |
+| `isVisible` | `boolean` | Visibility |
+| `width` | `number` | Width in pixels |
+| `height` | `number` | Height in pixels |
+| `widthFillParent` | `boolean` | Match parent width |
+| `heightFillParent` | `boolean` | Match parent height |
+| `backgroundColor` | `number` | Background color |
+| `horizontalAlignment` | `helper` | Horizontal alignment |
+| `verticalAlignment` | `helper` | Vertical alignment |
+
+#### RemoveComponentById
+Removes a dynamic component by its ID.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | Component ID to remove |
+
+### Media Components
+
+#### CreateDynamicCardView
+Creates and adds a dynamic CardView to a layout.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `cardTitle` | `text` | Card title |
+| `cardText` | `text` | Card description |
+| `layoutComponent` | `component` | Parent layout |
+| `cardViewId` | `number` | Unique ID |
+| `titleTextColor` | `number` | Title color |
+| `textTextColor` | `number` | Text color |
+| `cardBackgroundColor` | `number` | Background color |
+| `isVisible` | `boolean` | Visibility |
+| `titleTextSize` | `number` | Title text size |
+| `textTextSize` | `number` | Body text size |
+| `setRadius` | `number` | Corner radius |
+| `profileImagePath` | `text` | Image path/URL |
+| `profileImageVisible` | `boolean` | Show image |
+| `cardWidth` | `number` | Width in pixels |
+| `cardHeight` | `number` | Height in pixels |
+| `widthFillParent` | `boolean` | Match parent width |
+| `heightFillParent` | `boolean` | Match parent height |
+| `marginList` | `list` | Margins [left, top, right, bottom] |
+| `textAlignment` | `helper` | Text alignment |
+| `verticalAlignment` | `helper` | Card vertical alignment |
+| `horizontalAlignment` | `helper` | Card horizontal alignment |
+| `textImageProfileAlignment` | `helper` | Image/text arrangement |
+
+#### CreateDynamicImage
+Creates and adds a dynamic ImageView to a layout.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `imagePath` | `text` | Image path or URL |
+| `layoutComponent` | `component` | Parent layout |
+| `imageId` | `number` | Unique ID |
+| `width` | `number` | Width in pixels |
+| `height` | `number` | Height in pixels |
+| `widthFillParent` | `boolean` | Match parent width |
+| `heightFillParent` | `boolean` | Match parent height |
+| `isVisible` | `boolean` | Visibility |
+
+#### CreateImageSlider
+Creates a dynamic image slider with ViewPager.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | Unique ID |
+| `imageUrls` | `list` | List of image paths/URLs |
+| `layoutComponent` | `component` | Parent layout |
+| `viewPagerWidth` | `number` | Slider width (-1 for match parent) |
+| `viewPagerHeight` | `number` | Slider height (-1 for match parent) |
+| `imageWidth` | `number` | Image width (-1 for match parent) |
+| `imageHeight` | `number` | Image height (-1 for match parent) |
+
+### Properties & Utilities
+
+#### SetComponentById
+Configures common component properties.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | Component ID |
+| `text` | `text` | Text content |
+| `textColor` | `number` | Text color |
+| `backgroundColor` | `number` | Background color |
+| `visibility` | `number` | Visibility (0=visible, 8=gone) |
+| `textSize` | `number` | Text size |
+| `textAlignment` | `number` | Text alignment |
+| `horizontalAlignment` | `number` | Horizontal alignment |
+| `verticalAlignment` | `number` | Vertical alignment |
+| `marginList` | `list` | Margins [left, top, right, bottom] |
+| `width` | `number` | Width |
+| `height` | `number` | Height |
+| `widthFillParent` | `boolean` | Match parent width |
+| `heightFillParent` | `boolean` | Match parent height |
+
+#### SetTextColor
+Sets the text color of a dynamic component.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | Component ID |
+| `textColor` | `text` | Color as text (e.g., "#FF0000") |
+
+#### SetBackgroundColor
+Sets the background color of a dynamic component.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | Component ID |
+| `backgroundColor` | `number` | Color value |
+
+#### SetSize
+Sets the width and height of a dynamic component.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | Component ID |
+| `width` | `number` | New width |
+| `height` | `number` | New height |
+
+#### SetText
+Sets the text of a dynamic component.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | Component ID |
+| `text` | `text` | New text |
+
+#### SetVerticalAlignmentRelativeTo
+Sets vertical alignment relative to another component.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | Component to align |
+| `referenceComponentId` | `number` | Reference component |
+| `alignment` | `helper` | Alignment value |
+
+#### SetHorizontalAlignmentRelativeTo
+Sets horizontal alignment relative to another component.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | Component to align |
+| `referenceComponentId` | `number` | Reference component |
+| `alignment` | `helper` | Alignment value |
+
+#### SetHorizontalTextAlignment
+Sets horizontal text alignment for text components.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | Component ID |
+| `alignment` | `helper` | Text alignment |
+
+#### GetComponentInfo
+Gets a list of all component information.
+
+```
+Returns: list - Each item contains [componentName, componentId, layoutName]
+```
+
+#### GetDynamicComponentById
+Gets a dynamic component by its ID.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | Component ID |
+
+```
+Returns: component
+```
+
+#### GetDynamicComponentHeight
+Gets the height of a dynamic component.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | Component ID |
+
+```
+Returns: number
+```
+
+#### GetDynamicComponentWidth
+Gets the width of a dynamic component.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | Component ID |
+
+```
+Returns: number
+```
+
+#### GetDynamicComponentBackgroundColor
+Gets the background color of a dynamic component.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `componentId` | `number` | Component ID |
+
+```
+Returns: number
+```
+
+---
+
+## 🎨 Designer Properties
+
+### FontTypeface
+Sets the default font typeface for component text.
+
+| Property | Value |
+|----------|-------|
+| **Type** | `typeface` |
+| **Default** | `0` (Default) |
+| **Setter** | `FontTypeface(number)` |
+| **Getter** | `FontTypeface` returns `number` |
+
+---
+
+## 🔧 Helper Enums
+
+### AlignmentHorizontal
+
+| Value | Description |
+|-------|-------------|
+| `LEFT` | Align to left |
+| `CENTER` | Center horizontally |
+| `RIGHT` | Align to right |
+
+### AlignmentVertical
+
+| Value | Description |
+|-------|-------------|
+| `TOP` | Align to top |
+| `CENTER` | Center vertically |
+| `BOTTOM` | Align to bottom |
+
+### AlignmentText
+
+| Value | Description |
+|-------|-------------|
+| `LEFT` | Text aligned left |
+| `CENTER` | Text centered |
+| `RIGHT` | Text aligned right |
+
+---
+
+## 📦 Installation
+
+1. Download the `.aix` file
+2. In MIT App Inventor, go to the **Palette** section
+3. Click **Import Extension**
+4. Select the downloaded file
+5. The extension will appear in the **Extension** drawer
+
+---
+
+## 🚀 Quick Example
+
+```blocks
+Initialize App
+  call DynamicComponents1.GenerateUniqueId
+  set global componentId to get result
+
+  call DynamicComponents1.CreateDynamicButton
+    text: "Click Me!"
+    layoutComponent: HorizontalArrangement1
+    buttonId: get global componentId
+    textColor: COLOR_BLACK
+    isBold: true
+    isItalic: false
+    isVisible: true
+    textSize: 14
+    backgroundColor: COLOR_LTGRAY
+    width: 100
+    height: 50
+    widthFillParent: false
+    heightFillParent: false
+
+when DynamicComponents1.Click
+  (componentId)
+    call DynamicComponents1.SetText
+      componentId: componentId
+      text: "Clicked!"
+```
+
+---
+
+## 📝 License
+
+This extension is provided as-is. Feel free to use and modify for your projects.
+
+---
+
+<div align="center">
+  <p>Built with ❤️ using <a href="https://community.appinventor.mit.edu/t/fast-an-efficient-way-to-build-extensions/129103?u=jewel">FAST CLI</a></p>
+  <p><small>Version 1.2 | Last Updated: 2025-05-24</small></p>
+</div>

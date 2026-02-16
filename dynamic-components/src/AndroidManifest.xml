@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.iagolirapassos.dynamiccomponents">
+
+  <!-- Permissão necessária para baixar imagens da internet -->
+  <uses-permission android:name="android.permission.INTERNET"/>
+  
+  <!-- Para Android 9+ (API 28+) ao fazer requisições HTTP (não HTTPS) -->
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+  <application>
+    <!-- Você pode adicionar configurações de rede se necessário -->
+    <!-- <uses-library android:name="org.apache.http.legacy" android:required="false" /> -->
+  </application>
+
+  <!-- Para Android 11+ (API 30+) se precisar consultar outros pacotes -->
+  <!-- <queries> ... </queries> -->
+
+</manifest>
