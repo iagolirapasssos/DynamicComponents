@@ -6,7 +6,7 @@ An extension for MIT App Inventor 2.
 ## 📝 Specifications
 * **
 📦 **Package:** com.iagolirapassos.dynamiccomponents
-💾 **Size:** 51,54 KB
+💾 **Size:** 72,44 KB
 ⚙️ **Version:** 1.0
 📱 **Minimum API Level:** 14
 📅 **Updated On:** [date=2026-02-16 timezone="America/Fortaleza"]
@@ -15,9 +15,10 @@ An extension for MIT App Inventor 2.
 
 ### 🤝 Multi-Components
 1. [DynamicComponentsBase](#kbd-dynamiccomponentsbasekbd-3)
-2. [DynamicComponentsMedia](#kbd-dynamiccomponentsmediakbd-15)
-3. [DynamicComponentsLayout](#kbd-dynamiccomponentslayoutkbd-30)
-4. [DynamicComponentsCore](#kbd-dynamiccomponentscorekbd-45)
+2. [DynamicComponentsMedia](#kbd-dynamiccomponentsmediakbd-20)
+3. [DynamicComponentsLayout](#kbd-dynamiccomponentslayoutkbd-40)
+4. [DynamicComponentsCore](#kbd-dynamiccomponentscorekbd-60)
+5. [DynamicComponentsBeauty](#kbd-dynamiccomponentsbeautykbd-88)
 
 # <kbd>🧩 DynamicComponentsBase</kbd>
 <p>Base class for dynamic components extension.</p>
@@ -55,7 +56,7 @@ Report an error with a custom message
 | errorMessage | text
 
 ## <kbd>Methods:</kbd>
-**DynamicComponentsBase** has total 5 methods.
+**DynamicComponentsBase** has total 10 methods.
 
 ### 1. GenerateUniqueId
 Generate a unique ID.
@@ -97,6 +98,39 @@ Get the width of a dynamic component.
 | Parameter | Type
 | - | - |
 | componentId | number
+
+### 6. GetDynamicComponentBackgroundColor
+Get the background color of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 7. GetAllComponentIds
+Get all registered component IDs.
+
+* Return type: `list`
+
+### 8. ComponentExists
+Check if a component exists.
+
+* Return type: `boolean`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 9. RemoveComponentById
+Remove a dynamic component by ID.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 10. ClearAllComponents
+Clear all registered components.
 
 # <kbd>🧩 DynamicComponentsMedia</kbd>
 <p>Media components for dynamic components extension.</p>
@@ -134,7 +168,7 @@ Report an error with a custom message
 | errorMessage | text
 
 ## <kbd>Methods:</kbd>
-**DynamicComponentsMedia** has total 8 methods.
+**DynamicComponentsMedia** has total 13 methods.
 
 ### 1. GenerateUniqueId
 Generate a unique ID.
@@ -177,7 +211,40 @@ Get the width of a dynamic component.
 | - | - |
 | componentId | number
 
-### 6. CreateDynamicCardView
+### 6. GetDynamicComponentBackgroundColor
+Get the background color of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 7. GetAllComponentIds
+Get all registered component IDs.
+
+* Return type: `list`
+
+### 8. ComponentExists
+Check if a component exists.
+
+* Return type: `boolean`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 9. RemoveComponentById
+Remove a dynamic component by ID.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 10. ClearAllComponents
+Clear all registered components.
+
+### 11. CreateDynamicCardView
 Create and add a dynamic CardView to a layout.
 
 | Parameter | Type
@@ -209,7 +276,7 @@ Create and add a dynamic CardView to a layout.
 * Enums for **AlignmentVertical**: `Top`, `Center`, `Bottom`
 * Enums for **AlignmentHorizontal**: `Left`, `Center`, `Right`
 
-### 7. CreateDynamicImage
+### 12. CreateDynamicImage
 Create and add a dynamic ImageView
 
 | Parameter | Type
@@ -223,7 +290,7 @@ Create and add a dynamic ImageView
 | heightFillParent | boolean
 | isVisible | boolean
 
-### 8. CreateImageSlider
+### 13. CreateImageSlider
 Create a dynamic image slider.
 
 | Parameter | Type
@@ -272,7 +339,7 @@ Report an error with a custom message
 | errorMessage | text
 
 ## <kbd>Methods:</kbd>
-**DynamicComponentsLayout** has total 8 methods.
+**DynamicComponentsLayout** has total 13 methods.
 
 ### 1. GenerateUniqueId
 Generate a unique ID.
@@ -315,7 +382,40 @@ Get the width of a dynamic component.
 | - | - |
 | componentId | number
 
-### 6. CreateDynamicSpace
+### 6. GetDynamicComponentBackgroundColor
+Get the background color of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 7. GetAllComponentIds
+Get all registered component IDs.
+
+* Return type: `list`
+
+### 8. ComponentExists
+Check if a component exists.
+
+* Return type: `boolean`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 9. RemoveComponentById
+Remove a dynamic component by ID.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 10. ClearAllComponents
+Clear all registered components.
+
+### 11. CreateDynamicSpace
 Create and add a dynamic Space to a layout.
 
 | Parameter | Type
@@ -327,7 +427,7 @@ Create and add a dynamic Space to a layout.
 | widthFillParent | boolean
 | heightFillParent | boolean
 
-### 7. CreateDynamicVerticalArrangement
+### 12. CreateDynamicVerticalArrangement
 Create and add a dynamic Vertical Arrangement to a layout.
 
 | Parameter | Type
@@ -344,7 +444,7 @@ Create and add a dynamic Vertical Arrangement to a layout.
 | verticalAlignment | AlignmentVertical <small><mark>(helper blocks)</mark></small>
 
 
-### 8. CreateDynamicHorizontalArrangement
+### 13. CreateDynamicHorizontalArrangement
 Create and add a dynamic Horizontal Arrangement to a layout.
 
 | Parameter | Type
@@ -405,7 +505,7 @@ Event triggered when text in the TextBox changes.
 | newText | text
 
 ## <kbd>Methods:</kbd>
-**DynamicComponentsCore** has total 15 methods.
+**DynamicComponentsCore** has total 20 methods.
 
 ### 1. GenerateUniqueId
 Generate a unique ID.
@@ -448,7 +548,40 @@ Get the width of a dynamic component.
 | - | - |
 | componentId | number
 
-### 6. CreateDynamicButton
+### 6. GetDynamicComponentBackgroundColor
+Get the background color of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 7. GetAllComponentIds
+Get all registered component IDs.
+
+* Return type: `list`
+
+### 8. ComponentExists
+Check if a component exists.
+
+* Return type: `boolean`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 9. RemoveComponentById
+Remove a dynamic component by ID.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 10. ClearAllComponents
+Clear all registered components.
+
+### 11. CreateDynamicButton
 Create and add a dynamic button to a layout.
 
 | Parameter | Type
@@ -467,7 +600,7 @@ Create and add a dynamic button to a layout.
 | widthFillParent | boolean
 | heightFillParent | boolean
 
-### 7. CreateDynamicLabel
+### 12. CreateDynamicLabel
 Create and add a dynamic label to a layout.
 
 | Parameter | Type
@@ -492,7 +625,7 @@ Create and add a dynamic label to a layout.
 | verticalAlignmentText | AlignmentVertical <small><mark>(helper blocks)</mark></small>
 
 
-### 8. CreateDynamicTextBox
+### 13. CreateDynamicTextBox
 Create and add a dynamic TextBox to a layout.
 
 | Parameter | Type
@@ -516,7 +649,7 @@ Create and add a dynamic TextBox to a layout.
 | textAlignment | AlignmentText <small><mark>(helper blocks)</mark></small>
 
 
-### 9. GetDynamicTextBoxText
+### 14. GetDynamicTextBoxText
 Get the current text or hint of a dynamic TextBox.
 
 * Return type: `text`
@@ -526,8 +659,8 @@ Get the current text or hint of a dynamic TextBox.
 | textBoxId | number
 | isHint | boolean
 
-### 10. GetDynamicComponentWithLayout
-Get a dynamic component and its layout information by ID. Returns a list with [component, layoutName, layoutComponent, componentId]
+### 15. GetDynamicComponentWithLayout
+Get a dynamic component and its layout information by ID.
 
 * Return type: `list`
 
@@ -535,7 +668,7 @@ Get a dynamic component and its layout information by ID. Returns a list with [c
 | - | - |
 | componentId | number
 
-### 11. GetParentLayoutOfComponent
+### 16. GetParentLayoutOfComponent
 Get the layout component that contains a dynamic component.
 
 * Return type: `component`
@@ -544,8 +677,8 @@ Get the layout component that contains a dynamic component.
 | - | - |
 | componentId | number
 
-### 12. GetComponentLayoutType
-Get the layout type of a dynamic component (returns 'VerticalArrangement', 'HorizontalArrangement', 'FrameLayout', 'CardView', or 'unknown')
+### 17. GetComponentLayoutType
+Get the layout type of a dynamic component.
 
 * Return type: `text`
 
@@ -553,7 +686,7 @@ Get the layout type of a dynamic component (returns 'VerticalArrangement', 'Hori
 | - | - |
 | componentId | number
 
-### 13. IsComponentInLayout
+### 18. IsComponentInLayout
 Check if a dynamic component exists in a specific layout.
 
 * Return type: `boolean`
@@ -563,7 +696,7 @@ Check if a dynamic component exists in a specific layout.
 | componentId | number
 | layoutId | number
 
-### 14. GetChildComponentsOfLayout
+### 19. GetChildComponentsOfLayout
 Get all child components of a layout component.
 
 * Return type: `list`
@@ -572,12 +705,309 @@ Get all child components of a layout component.
 | - | - |
 | layoutId | number
 
-### 15. GetComponentIdFromView
-Get the component ID from a view (for advanced usage).
+### 20. GetComponentIdFromView
+Get the component ID from a view.
 
 * Return type: `number`
 
 | Parameter | Type
 | - | - |
 | component | component
+
+# <kbd>🧩 DynamicComponentsBeauty</kbd>
+<p>Beauty and texturing extension for dynamic components. Adds shadows, gradients, borders, animations and professional visual effects.</p>
+
+## <kbd>Events:</kbd>
+**DynamicComponentsBeauty** has total 6 events.
+
+### 1. Click
+Event triggered when a dynamic component is clicked.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 2. DoubleClick
+Event triggered when a dynamic component is double-clicked.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 3. ComponentCreated
+Event triggered when a dynamic component is created.
+
+| Parameter | Type
+| - | - |
+| componentName | text
+| componentID | number
+
+### 4. ReportError
+Report an error with a custom message
+
+| Parameter | Type
+| - | - |
+| errorMessage | text
+
+### 5. AnimationStarted
+Event triggered when an animation starts.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| animationType | text
+
+### 6. AnimationEnded
+Event triggered when an animation ends.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| animationType | text
+
+## <kbd>Methods:</kbd>
+**DynamicComponentsBeauty** has total 28 methods.
+
+### 1. GenerateUniqueId
+Generate a unique ID.
+
+* Return type: `number`
+
+### 2. GetDynamicComponentById
+Get a dynamic component by its ID.
+
+* Return type: `component`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 3. GetDynamicComponentLayoutById
+Get the layout view of a dynamic component by its ID.
+
+* Return type: `component`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 4. GetDynamicComponentHeight
+Get the height of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 5. GetDynamicComponentWidth
+Get the width of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 6. GetDynamicComponentBackgroundColor
+Get the background color of a dynamic component.
+
+* Return type: `number`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 7. GetAllComponentIds
+Get all registered component IDs.
+
+* Return type: `list`
+
+### 8. ComponentExists
+Check if a component exists.
+
+* Return type: `boolean`
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 9. RemoveComponentById
+Remove a dynamic component by ID.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 10. ClearAllComponents
+Clear all registered components.
+
+### 11. ApplyShadow
+Apply shadow to a component.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| shadowColor | number
+| shadowRadius | number
+| shadowDx | number
+| shadowDy | number
+
+### 12. ApplyNeonGlow
+Apply neon glow effect to a component.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| glowColor | number
+| glowRadius | number
+
+### 13. ApplyLinearGradient
+Apply linear gradient background to a component.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| startColor | number
+| endColor | number
+| direction | GradientDirection <small><mark>(helper blocks)</mark></small>
+
+* Enums for **GradientDirection**: `TopBottom`, `BottomTop`, `LeftRight`, `RightLeft`, `TlBr`, `TrBl`
+
+### 14. ApplyRadialGradient
+Apply radial gradient background to a component.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| centerColor | number
+| edgeColor | number
+| gradientRadius | number
+
+### 15. ApplyBorder
+Apply border to a component.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| borderColor | number
+| borderWidth | number
+| cornerRadius | number
+
+### 16. ApplyDashedBorder
+Apply dashed border to a component.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| borderColor | number
+| borderWidth | number
+| cornerRadius | number
+| dashWidth | number
+| dashGap | number
+
+### 17. AnimateFade
+Apply fade animation to a component.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| duration | number
+| startAlpha | number
+| endAlpha | number
+
+### 18. AnimateScale
+Apply scale animation to a component.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| duration | number
+| scaleX | number
+| scaleY | number
+
+### 19. AnimateRotation
+Apply rotation animation to a component.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| duration | number
+| degrees | number
+
+### 20. AnimateBounce
+Apply bounce animation to a component.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| duration | number
+
+### 21. ApplyNoiseTexture
+Apply noise texture to a component.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| noiseColor | number
+| intensity | number
+
+### 22. ApplyGradientOverlay
+Apply gradient overlay to a component.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| startColor | number
+| endColor | number
+| overlayAlpha | number
+
+### 23. ApplyBlurEffect
+Apply blur effect to a component.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| blurRadius | number
+
+### 24. MakeCircular
+Transform a component into a circle.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 25. MakeCircularWithBorder
+Make component a perfect circle with border.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| borderColor | number
+| borderWidth | number
+
+### 26. ResetEffects
+Reset all visual effects on a component.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+
+### 27. ApplyStylePreset
+Combine multiple beauty effects into a style.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| stylePreset | StylePreset <small><mark>(helper blocks)</mark></small>
+
+* Enums for **StylePreset**: `Material`, `Neon`, `Elegant`, `Fun`, `Minimal`, `Glossy`
+
+### 28. ApplyBounceAnimation
+Apply continuous bounce animation.
+
+| Parameter | Type
+| - | - |
+| componentId | number
+| duration | number
 

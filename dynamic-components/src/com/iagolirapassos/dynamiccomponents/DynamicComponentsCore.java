@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import io.dynamiccomponents.helpers.*;
+import com.iagolirapassos.helpers.*;
 
 @DesignerComponent(
         version = 1,
@@ -87,14 +87,14 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Click(buttonId);
+                fireClick(buttonId);
             }
         });
 
         button.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                DoubleClick(buttonId);
+                fireDoubleClick(buttonId);
                 return true;
             }
         });
@@ -102,8 +102,8 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
         LinearLayout layout = getLayoutFromComponent(layoutComponent);
         if (layout != null) {
             layout.addView(button);
-            dynamicComponents.put(buttonId, buttonComponent);
-            ComponentCreated("Button", buttonId);
+            registry.registerComponent(buttonId, buttonComponent);
+            fireComponentCreated("Button", buttonId);
             Log.i("DynamicComponents", "Button created with ID: " + buttonId);
         }
     }
@@ -179,14 +179,14 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
                 label.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Click(labelId);
+                        fireClick(labelId);
                     }
                 });
 
                 label.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View v) {
-                        DoubleClick(labelId);
+                        fireDoubleClick(labelId);
                         return true;
                     }
                 });
@@ -204,8 +204,8 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
                 LinearLayout layout = getLayoutFromComponent(layoutComponent);
                 if (layout != null) {
                     layout.addView(label);
-                    dynamicComponents.put(labelId, labelComponent);
-                    ComponentCreated("Label", labelId);
+                    registry.registerComponent(labelId, labelComponent);
+                    fireComponentCreated("Label", labelId);
                     Log.i("DynamicComponents", "Label created with ID: " + labelId);
                 }
             }
@@ -275,7 +275,7 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
                 textBox.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Click(textBoxId);
+                        fireClick(textBoxId);
                     }
                 });
 
@@ -286,15 +286,15 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
                     public void onTextChanged(CharSequence s, int start, int before, int count) {}
                     @Override
                     public void afterTextChanged(Editable s) {
-                        TextChangedEvent(textBoxId, s.toString());
+                        fireTextChanged(textBoxId, s.toString());
                     }
                 });
 
                 LinearLayout layout = getLayoutFromComponent(layoutComponent);
                 if (layout != null) {
                     layout.addView(textBox);
-                    dynamicComponents.put(textBoxId, textBoxComponent);
-                    ComponentCreated("TextBox", textBoxId);
+                    registry.registerComponent(textBoxId, textBoxComponent);
+                    fireComponentCreated("TextBox", textBoxId);
                     Log.i("DynamicComponents", "TextBox created with ID: " + textBoxId);
                 }
             }
@@ -303,7 +303,7 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
 
     @SimpleFunction(description = "Get the current text or hint of a dynamic TextBox.")
     public String GetDynamicTextBoxText(int textBoxId, boolean isHint) {
-        AndroidViewComponent component = dynamicComponents.get(textBoxId);
+        AndroidViewComponent component = registry.getComponent(textBoxId);
         if (component != null && component instanceof MyTextBoxComponent) {
             EditText textBox = (EditText) component.getView();
             if (textBox != null) {
@@ -313,25 +313,19 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
         return null;
     }
 
-    /**
-     * NOVOS MÉTODOS PARA OBTER INFORMAÇÕES DE LAYOUT
-     */
-    
-    @SimpleFunction(description = "Get a dynamic component and its layout information by ID. Returns a list with [component, layoutName, layoutComponent, componentId]")
+    @SimpleFunction(description = "Get a dynamic component and its layout information by ID.")
     public YailList GetDynamicComponentWithLayout(int componentId) {
-        AndroidViewComponent component = dynamicComponents.get(componentId);
+        AndroidViewComponent component = registry.getComponent(componentId);
         
         if (component != null && component.getView() != null) {
             View componentView = component.getView();
             String layoutName = "unknown";
             AndroidViewComponent layoutComponent = null;
             
-            // Obter o layout pai
             ViewParent parent = componentView.getParent();
             if (parent instanceof ViewGroup) {
                 ViewGroup parentViewGroup = (ViewGroup) parent;
                 
-                // Determinar o tipo de layout
                 if (parentViewGroup instanceof LinearLayout) {
                     int orientation = ((LinearLayout) parentViewGroup).getOrientation();
                     layoutName = (orientation == LinearLayout.VERTICAL) ? "VerticalArrangement" : "HorizontalArrangement";
@@ -341,8 +335,7 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
                     layoutName = "CardView";
                 }
                 
-                // Tentar encontrar o componente de layout correspondente
-                for (Map.Entry<Integer, AndroidViewComponent> entry : dynamicComponents.entrySet()) {
+                for (Map.Entry<Integer, AndroidViewComponent> entry : registry.getAllComponents().entrySet()) {
                     if (entry.getValue().getView() == parentViewGroup) {
                         layoutComponent = entry.getValue();
                         break;
@@ -350,12 +343,11 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
                 }
             }
             
-            // Criar uma lista com as informações
             List<Object> infoList = new ArrayList<>();
-            infoList.add(component);           // [0] O próprio componente
-            infoList.add(layoutName);           // [1] Nome do layout
-            infoList.add(layoutComponent);      // [2] Componente do layout (ou null)
-            infoList.add(componentId);          // [3] ID do componente
+            infoList.add(component);
+            infoList.add(layoutName);
+            infoList.add(layoutComponent);
+            infoList.add(componentId);
             
             return YailList.makeList(infoList);
         }
@@ -365,7 +357,7 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
 
     @SimpleFunction(description = "Get the layout component that contains a dynamic component.")
     public AndroidViewComponent GetParentLayoutOfComponent(int componentId) {
-        AndroidViewComponent component = dynamicComponents.get(componentId);
+        AndroidViewComponent component = registry.getComponent(componentId);
         
         if (component != null && component.getView() != null) {
             View componentView = component.getView();
@@ -374,8 +366,7 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
             if (parent instanceof ViewGroup) {
                 ViewGroup parentViewGroup = (ViewGroup) parent;
                 
-                // Procurar o componente de layout correspondente
-                for (Map.Entry<Integer, AndroidViewComponent> entry : dynamicComponents.entrySet()) {
+                for (Map.Entry<Integer, AndroidViewComponent> entry : registry.getAllComponents().entrySet()) {
                     if (entry.getValue().getView() == parentViewGroup) {
                         return entry.getValue();
                     }
@@ -386,9 +377,9 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
         return null;
     }
 
-    @SimpleFunction(description = "Get the layout type of a dynamic component (returns 'VerticalArrangement', 'HorizontalArrangement', 'FrameLayout', 'CardView', or 'unknown')")
+    @SimpleFunction(description = "Get the layout type of a dynamic component.")
     public String GetComponentLayoutType(int componentId) {
-        AndroidViewComponent component = dynamicComponents.get(componentId);
+        AndroidViewComponent component = registry.getComponent(componentId);
         
         if (component != null && component.getView() != null) {
             View componentView = component.getView();
@@ -409,8 +400,8 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
 
     @SimpleFunction(description = "Check if a dynamic component exists in a specific layout.")
     public boolean IsComponentInLayout(int componentId, int layoutId) {
-        AndroidViewComponent component = dynamicComponents.get(componentId);
-        AndroidViewComponent layout = dynamicComponents.get(layoutId);
+        AndroidViewComponent component = registry.getComponent(componentId);
+        AndroidViewComponent layout = registry.getComponent(layoutId);
         
         if (component != null && component.getView() != null && layout != null && layout.getView() != null) {
             View componentView = component.getView();
@@ -424,19 +415,17 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
 
     @SimpleFunction(description = "Get all child components of a layout component.")
     public YailList GetChildComponentsOfLayout(int layoutId) {
-        AndroidViewComponent layout = dynamicComponents.get(layoutId);
+        AndroidViewComponent layout = registry.getComponent(layoutId);
         List<Object> childList = new ArrayList<>();
         
         if (layout != null && layout.getView() instanceof ViewGroup) {
             ViewGroup layoutView = (ViewGroup) layout.getView();
             
-            // Percorrer todos os componentes dinâmicos
-            for (Map.Entry<Integer, AndroidViewComponent> entry : dynamicComponents.entrySet()) {
+            for (Map.Entry<Integer, AndroidViewComponent> entry : registry.getAllComponents().entrySet()) {
                 int componentId = entry.getKey();
                 AndroidViewComponent component = entry.getValue();
                 
                 if (component != null && component.getView() != null) {
-                    // Verificar se o componente está dentro deste layout
                     if (component.getView().getParent() == layoutView) {
                         childList.add(componentId);
                     }
@@ -447,10 +436,10 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
         return YailList.makeList(childList);
     }
 
-    @SimpleFunction(description = "Get the component ID from a view (for advanced usage).")
+    @SimpleFunction(description = "Get the component ID from a view.")
     public int GetComponentIdFromView(AndroidViewComponent component) {
         if (component != null && component.getView() != null) {
-            for (Map.Entry<Integer, AndroidViewComponent> entry : dynamicComponents.entrySet()) {
+            for (Map.Entry<Integer, AndroidViewComponent> entry : registry.getAllComponents().entrySet()) {
                 if (entry.getValue() == component) {
                     return entry.getKey();
                 }
@@ -464,7 +453,6 @@ public class DynamicComponentsCore extends DynamicComponentsBase {
         EventDispatcher.dispatchEvent(this, "TextChangedEvent", textBoxId, newText);
     }
 
-    // Component Classes
     private class MyButtonComponent extends AndroidViewComponent {
         private Button button;
         public MyButtonComponent(ComponentContainer container) {

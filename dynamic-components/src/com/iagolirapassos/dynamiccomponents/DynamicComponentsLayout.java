@@ -13,7 +13,7 @@ import com.google.appinventor.components.runtime.*;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.dynamiccomponents.helpers.*;
+import com.iagolirapassos.helpers.*;
 
 @DesignerComponent(
         version = 1,
@@ -52,8 +52,8 @@ public class DynamicComponentsLayout extends DynamicComponentsBase {
         LinearLayout layout = getLayoutFromComponent(layoutComponent);
         if (layout != null) {
             layout.addView(space);
-            dynamicComponents.put(spaceId, spaceComponent);
-            ComponentCreated("Space", spaceId);
+            registry.registerComponent(spaceId, spaceComponent);
+            fireComponentCreated("Space", spaceId);
             Log.i("DynamicComponents", "Space created with ID: " + spaceId);
         }
     }
@@ -100,14 +100,14 @@ public class DynamicComponentsLayout extends DynamicComponentsBase {
                 verticalLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Click(verticalArrangementId);
+                        fireClick(verticalArrangementId);
                     }
                 });
 
                 verticalLayout.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View v) {
-                        DoubleClick(verticalArrangementId);
+                        fireDoubleClick(verticalArrangementId);
                         return true;
                     }
                 });
@@ -115,9 +115,9 @@ public class DynamicComponentsLayout extends DynamicComponentsBase {
                 LinearLayout mainLayout = getLayoutFromComponent(layoutComponent);
                 if (mainLayout != null) {
                     mainLayout.addView(verticalLayout);
-                    dynamicComponents.put(verticalArrangementId, verticalComponent);
+                    registry.registerComponent(verticalArrangementId, verticalComponent);
                     verticalArrangements.put(verticalArrangementId, verticalComponent);
-                    ComponentCreated("VerticalArrangement", verticalArrangementId);
+                    fireComponentCreated("VerticalArrangement", verticalArrangementId);
                     Log.i("DynamicComponents", "Vertical Arrangement created with ID: " + verticalArrangementId);
                 }
             }
@@ -168,14 +168,14 @@ public class DynamicComponentsLayout extends DynamicComponentsBase {
                 horizontalLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Click(horizontalArrangementId);
+                        fireClick(horizontalArrangementId);
                     }
                 });
 
                 horizontalLayout.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View v) {
-                        DoubleClick(horizontalArrangementId);
+                        fireDoubleClick(horizontalArrangementId);
                         return true;
                     }
                 });
@@ -183,16 +183,15 @@ public class DynamicComponentsLayout extends DynamicComponentsBase {
                 LinearLayout mainLayout = getLayoutFromComponent(layoutComponent);
                 if (mainLayout != null) {
                     mainLayout.addView(horizontalLayout);
-                    dynamicComponents.put(horizontalArrangementId, horizontalComponent);
+                    registry.registerComponent(horizontalArrangementId, horizontalComponent);
                     horizontalArrangements.put(horizontalArrangementId, horizontalComponent);
-                    ComponentCreated("HorizontalArrangement", horizontalArrangementId);
+                    fireComponentCreated("HorizontalArrangement", horizontalArrangementId);
                     Log.i("DynamicComponents", "Horizontal Arrangement created with ID: " + horizontalArrangementId);
                 }
             }
         });
     }
 
-    // Component Classes
     public class MyVerticalArrangementComponent extends AndroidViewComponent {
         private LinearLayout verticalLayout;
         public MyVerticalArrangementComponent(ComponentContainer container) {

@@ -1,4 +1,4 @@
-package io.dynamiccomponents.helpers;
+package com.iagolirapassos.helpers;
 
 import java.util.UUID;
 

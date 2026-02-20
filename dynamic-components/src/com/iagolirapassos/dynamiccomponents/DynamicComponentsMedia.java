@@ -33,10 +33,7 @@ import com.google.appinventor.components.annotations.*;
 import com.google.appinventor.components.runtime.*;
 import com.google.appinventor.components.runtime.util.YailList;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import io.dynamiccomponents.helpers.*;
+import com.iagolirapassos.helpers.*;
 
 @DesignerComponent(
         version = 1,
@@ -84,18 +81,17 @@ public class DynamicComponentsMedia extends DynamicComponentsBase {
                 cardView.setCardBackgroundColor(cardBackgroundColor);
                 cardView.setId(cardViewId);
 
-                // Adicionar listeners de clique
                 cardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Click(cardViewId);
+                        fireClick(cardViewId);
                     }
                 });
 
                 cardView.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View v) {
-                        DoubleClick(cardViewId);
+                        fireDoubleClick(cardViewId);
                         return true;
                     }
                 });
@@ -209,8 +205,8 @@ public class DynamicComponentsMedia extends DynamicComponentsBase {
                 LinearLayout mainLayoutContainer = getLayoutFromComponent(layoutComponent);
                 if (mainLayoutContainer != null) {
                     mainLayoutContainer.addView(cardView);
-                    dynamicComponents.put(cardViewId, cardviewComponent);
-                    ComponentCreated("CardView", cardViewId);
+                    registry.registerComponent(cardViewId, cardviewComponent);
+                    fireComponentCreated("CardView", cardViewId);
                     Log.i("DynamicComponents", "CardView created with ID: " + cardViewId);
                 }
             }
@@ -258,14 +254,13 @@ public class DynamicComponentsMedia extends DynamicComponentsBase {
                     viewPagerComponent.setId(componentId);
 
                     layoutViewGroup.addView(viewPagerComponent.getView());
-                    dynamicComponents.put(componentId, viewPagerComponent);
-                    ComponentCreated("DynamicImageSlider", componentId);
+                    registry.registerComponent(componentId, viewPagerComponent);
+                    fireComponentCreated("DynamicImageSlider", componentId);
                 }
             }
         });
     }
 
-    // Private helper methods
     private void loadImage(String imagePath, ImageView imageView) {
         if (isURL(imagePath)) {
             new DownloadImageTask(new DownloadImageTask.Callback() {
@@ -310,7 +305,7 @@ public class DynamicComponentsMedia extends DynamicComponentsBase {
         
         String assetsPath = getDynamicAssetsPath(context, imagePath);
         if (!doesImageExist(assetsPath)) {
-            ReportError("Image file not found: " + imagePath);
+            fireReportError("Image file not found: " + imagePath);
             return;
         }
 
@@ -324,7 +319,7 @@ public class DynamicComponentsMedia extends DynamicComponentsBase {
                                      widthFillParent, heightFillParent, isVisible);
             }
         } catch (IOException e) {
-            ReportError("Could not load image: " + imagePath);
+            fireReportError("Could not load image: " + imagePath);
         }
     }
 
@@ -344,12 +339,11 @@ public class DynamicComponentsMedia extends DynamicComponentsBase {
         LinearLayout layout = getLayoutFromComponent(layoutComponent);
         if (layout != null) {
             layout.addView(imageView);
-            dynamicComponents.put(imageId, imageComponent);
-            ComponentCreated("DynamicImage", imageId);
+            registry.registerComponent(imageId, imageComponent);
+            fireComponentCreated("DynamicImage", imageId);
         }
     }
 
-    // Image Slider Adapter
     private class ImageSliderAdapter extends PagerAdapter {
         private Context context;
         private List<String> imageUrls;
@@ -411,7 +405,6 @@ public class DynamicComponentsMedia extends DynamicComponentsBase {
         public boolean isViewFromObject(View view, Object object) { return view == object; }
     }
 
-    // DownloadImageTask
     private static class DownloadImageTask {
         private Callback callback;
         private static ExecutorService executor = Executors.newSingleThreadExecutor();
@@ -450,7 +443,6 @@ public class DynamicComponentsMedia extends DynamicComponentsBase {
         public interface Callback { void onImageDownloaded(Bitmap result); }
     }
 
-    // Helper methods
     private boolean isURL(String input) {
         try {
             new URL(input);
@@ -475,7 +467,6 @@ public class DynamicComponentsMedia extends DynamicComponentsBase {
         }
     }
 
-    // Component Classes
     public class MyCardViewComponent extends AndroidViewComponent {
         private CardView cardview;
         public MyCardViewComponent(ComponentContainer container) {
